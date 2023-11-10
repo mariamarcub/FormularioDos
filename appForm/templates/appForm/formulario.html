@@ -5,7 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-    {% csrf_token %} <!--Es necesario para los envios POST, pues le indica a django que la información es segura-->
-    {{ form.as_p }}
+    <form method="POST">
+        {% csrf_token %} <!--Es necesario para los envios POST, pues le indica a django que la información es segura-->
+        {{ form.as_p }}
+        </br>
+        <input type="submit" value="Enviar"/>
+        </br>
+
+    </form>
+    {% if username %}
+        <p style="font-weight: bold;">Usuario Introducido:</p>
+        <p> {{ username }}</p>
+    {% endif %}
+
+    {% if password %}
+        <p style="font-weight: bold;">Contraseña Introducida:</p>
+        <p> {{ password }}</p>
+    {% endif %}
+
+
+
 </body>
 </html>
